@@ -9,10 +9,8 @@
 </head>
 <body>
 
- 
     <div class="estrelas"></div>
 
-  
     <div class="formulario">
         <h1>Login</h1>
 
@@ -23,8 +21,10 @@
             </div>
 
             <div class="caixa-formulario">
-                <input type="password" placeholder="Senha" required>
-                <i class="bx bxs-lock-alt"></i>
+                <input type="password" id="senha" placeholder="Senha" required>
+                <span id="toggleSenha">
+                    <i class="bx bxs-lock-alt"></i>
+                </span>
             </div>
 
             <div class="caixa-lembrar-senha">
@@ -41,6 +41,19 @@
             </div>
         </form>
     </div>
+
+    <script>
+        const senhaInput = document.getElementById('senha');
+        const toggleSenha = document.getElementById('toggleSenha');
+        const icone = toggleSenha.querySelector('i');
+
+        toggleSenha.addEventListener('click', () => {
+            const isPassword = senhaInput.type === 'password';
+            senhaInput.type = isPassword ? 'text' : 'password';
+            icone.classList.toggle('bxs-lock-alt');
+            icone.classList.toggle('bxs-lock-open');
+        });
+    </script>
 
 </body>
 </html>
